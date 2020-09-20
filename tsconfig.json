@@ -1,26 +1,17 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["esnext"],
     "jsx": "react",
-    "lib": [
-      "es5",
-      "es2015",
-      "es2017",
-      "dom"
-    ],
-    "baseUrl": "./",
-    "paths": {}
-  },
-  "include": [
-    "src"
-  ]
+    "strict": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  }
 }

@@ -1,11 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/stories/*.stories.tsx'],
+  stories: ['../src/stories/*.stories.mdx'],
   addons: [
     '@storybook/addon-essentials',
     // '@storybook/addon-knobs',
-    '@storybook/addon-notes',
+    // '@storybook/addon-notes',
     '@storybook/addon-actions',
     '@storybook/addon-links',
     {
@@ -19,6 +19,15 @@ module.exports = {
     // '@storybook/addon-info', // deprecated insteadof @storybook/addon-docs
     '@storybook/addon-controls', // 替代knobs
   ],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -68,22 +77,29 @@ module.exports = {
     },
     // {
     //   test: /\.tsx?$/,
+    //   include: path.resolve(__dirname, "../src"),
     //   use: [
     //     // 'babel-loader',
-    //     'ts-loader',
+    //     // 'ts-loader',
     //     {
-    //       loader: require.resolve("react-docgen-typescript-loader"),
+    //       loader: 'ts-loader',
     //       options: {
-    //         tsconfigPath: path.resolve(__dirname, "../tsconfig.json"),
-    //         shouldExtractLiteralValuesFromEnum: true,
-    //         propFilter: (prop) => {
-    //           if (prop.parent) {
-    //             return !prop.parent.fileName.includes('node_modules')
-    //           }
-    //           return true            
-    //         }
+    //         transpileOnly: true
     //       }
-    //     }
+    //     },
+    //     // {
+    //     //   loader: require.resolve("react-docgen-typescript-loader"),
+    //     //   options: {
+    //     //     tsconfigPath: path.resolve(__dirname, "../tsconfig.json"),
+    //     //     shouldExtractLiteralValuesFromEnum: true,
+    //     //     propFilter: (prop) => {
+    //     //       if (prop.parent) {
+    //     //         return !prop.parent.fileName.includes('node_modules')
+    //     //       }
+    //     //       return true            
+    //     //     }
+    //     //   }
+    //     // }
     //   ]
     // }
     )

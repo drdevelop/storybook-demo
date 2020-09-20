@@ -1,0 +1,35 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { Demo } from '../components/Demo';
+
+<Meta
+  title='Demo'
+  component={Demo}
+/>
+
+# Demo
+
+Some **markdown** description, or `whatever` you want.
+
+## Examples
+
+<Story name='Demo' height='200px'>
+  <Demo>Label</Demo>
+</Story>
+
+## API
+
+### Demo
+
+<ArgsTable of={Demo} />
+
+### Fast Go
+<LinkTo
+  kind="Button"
+  story="basic"
+  href="#Config"
+  target="_blank"
+  title="link to second story"
+  style={{color: '#1474f3'}}
+>Go to Button</LinkTo>
+<br/>
