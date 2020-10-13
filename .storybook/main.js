@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   stories: ['../src/stories/*.stories.mdx'],
   addons: [
-    '@storybook/addon-essentials',
+    // '@storybook/addon-essentials',
     // '@storybook/addon-knobs',
     // '@storybook/addon-notes',
     '@storybook/addon-actions',
@@ -17,7 +17,7 @@ module.exports = {
       },
     },
     // '@storybook/addon-info', // deprecated insteadof @storybook/addon-docs
-    '@storybook/addon-controls', // 替代knobs
+    // '@storybook/addon-controls', // 替代knobs
   ],
   typescript: {
     check: false,
@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   webpackFinal: async (config, { configType }) => {
+    console.log('config', config);
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'antd';
 
 export interface DemoProps {
   a: string;
@@ -9,6 +10,7 @@ export const Demo: React.FC<DemoProps> = (props: DemoProps) => {
   return (
     <>
       demo { a }
+      <Table dataSource={[]} />
     </>
   );
 }
